@@ -1,5 +1,5 @@
 ### Microservice de Cartão - Kotlin Application 🚀 🔄 🌐
-Codificação em Kotlin com Java 21, Postgres e RabbitMQ para um Microservice de Cartão para o Microserviço Poliglota
+Codificação em Kotlin com Java 17, Postgres e RabbitMQ para um Microservice de Cartão para o Microserviço Poliglota
 Core Banking Microservices foi desenvolvido com o objetivo de gerir operações relacionadas à criação e administração de cartões de crédito/débito em um ambiente de arquitetura distribuída. Implementado em Kotlin, este microserviço segue os princípios da Clean Architecture, promovendo alta modularidade, manutenção e escalabilidade. Para garantir robustez e performance, o microserviço utiliza PostgreSQL para armazenamento de dados, RabbitMQ para comunicação assíncrona entre serviços, e Redis como solução de cache para otimização de consultas. Além disso, o sistema é monitorado por Prometheus e Grafana, ferramentas de observabilidade que garantem uma visão detalhada do desempenho da aplicação. Toda a solução é containerizada via Docker e orquestrada por Kubernetes, o que possibilita um ambiente altamente escalável e confiável.
 
 
