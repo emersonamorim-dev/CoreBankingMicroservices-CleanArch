@@ -12,7 +12,7 @@ async function connectMongoDB() {
   }
 }
 
-// Função para buscar o cache no MongoDB
+// busca o cache no MongoDB
 async function cacheMiddleware(req, res, next) {
   await connectMongoDB();
   const cachedResponse = await db.collection('cache').findOne({ url: req.originalUrl });
