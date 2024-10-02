@@ -96,26 +96,6 @@ git clone https://github.com/exemplo/core-digital-banking.git](https://github.co
 ```
 cd CoreBankingMicroservices-CleanArch
 ```
-Configure as variáveis de ambiente no arquivo .env para cada microserviço:
-
-Defina as credenciais para os bancos de dados (PostgreSQL, MySQL, MongoDB).
-Configure as informações do RabbitMQ e Redis.
-Execute os microserviços usando Docker Compose:
-
-```
-docker-compose up --build
-```
-Verifique se o RabbitMQ está funcionando e acessível:
-
-Acesse o painel de administração do RabbitMQ na porta 15672:
-```
-http://localhost:15672
-```
-Monitore os logs para garantir que todos os serviços foram inicializados corretamente:
-
-```
-docker-compose logs
-```
 
 #### Monitoramento e Métricas
 O sistema utiliza o Prometheus e Grafana para monitorar métricas de performance. O Prometheus coleta métricas expostas por cada microserviço, que podem ser visualizadas e analisadas através de painéis no Grafana.
