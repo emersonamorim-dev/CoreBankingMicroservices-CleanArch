@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-// Conectar ao MongoDB
+// Conecta ao MongoDB
 const mongoUrl = 'mongodb://mongo-cache:27017';
 const client = new MongoClient(mongoUrl);
 let db;
@@ -12,7 +12,7 @@ async function connectMongoDB() {
   }
 }
 
-// Função para armazenar dados no cache MongoDB
+// armazena dados no cache MongoDB
 async function setCache(key, value) {
   await connectMongoDB();
   await db.collection('cache').updateOne(
@@ -22,7 +22,7 @@ async function setCache(key, value) {
   );
 }
 
-// Função para obter dados do cache MongoDB
+// obter dados do cache MongoDB
 async function getCache(key) {
   await connectMongoDB();
   const cachedData = await db.collection('cache').findOne({ url: key });
