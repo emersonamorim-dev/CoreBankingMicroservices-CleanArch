@@ -26,7 +26,7 @@ Na imagem anexada, podemos ver a estrutura do Microservice de Transferência, co
 
 #### Diagrama da Aplicação
 
-![](https://raw.githubusercontent.com/emersonamorim-dev/Core-Digital-Banking-Microservice/main/Diagrama-Microservico-Tranferencia-C#.png)
+![](https://raw.githubusercontent.com/emersonamorim-dev/CoreBankingMicroservices-CleanArch/refs/heads/main/Diagrama/Diagrama-Microservico-Tranferencia-C%23.png)
 
 #### Comandos necessário para instalar o .NET Core 8.0 no Ubuntu 24.04 via WSL2
 
