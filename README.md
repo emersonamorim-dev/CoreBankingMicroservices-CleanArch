@@ -5,8 +5,8 @@ O Core Digital Banking Microservice é uma solução robusta e resiliente para b
 Esse projeto é implementado com os princípios da Clean Architecture, onde cada camada tem responsabilidades bem definidas, facilitando a manutenção e expansão do sistema. A arquitetura de microserviços permite uma comunicação desacoplada, aumentando a tolerância a falhas e a escalabilidade do sistema.
 
 
-#### Microserviços de Cartões (Kotlin, Postgres, RabbitMQ, Redis)
-1. Microservice de Cartões (Kotlin, PostgreSQL, RabbitMQ, Redis)
+#### 1. Microserviços de Cartões (Kotlin, Postgres, RabbitMQ, Redis)
+Microservice de Cartões (Kotlin, PostgreSQL, RabbitMQ, Redis)
 O microserviço de cartões é responsável por toda a gestão de cartões de débito e crédito, incluindo emissão, cancelamento e verificação de dados.
 
 ### Tecnologia:
