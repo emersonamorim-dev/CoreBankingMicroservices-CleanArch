@@ -28,7 +28,7 @@ tests:
 
 #### Diagrama da Aplicação
 
-![](https://raw.githubusercontent.com/emersonamorim-dev/Core-Digital-Banking-Microservice/main/Diagrama-Microservico-Pagamento-NodeJS.png)
+![](https://raw.githubusercontent.com/emersonamorim-dev/CoreBankingMicroservices-CleanArch/refs/heads/main/Diagrama/Diagrama-Microservico-Pagamento-NodeJS.png)
 
 ### Aplicação está toda configurada para subir Via Docker Desktop no Windows dentro do WSL2 com Ubuntu 24.04
 
