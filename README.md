@@ -60,7 +60,7 @@ Cada microserviço é independente e utiliza seu próprio banco de dados, garant
 
 #### Diagrama da Aplicação
 
-![](https://raw.githubusercontent.com/emersonamorim-dev/Core-Digital-Banking-Microservice/main/Diagrama-Core-Digital-Banking-Microservice.png)
+![](https://raw.githubusercontent.com/emersonamorim-dev/CoreBankingMicroservices-CleanArch/refs/heads/main/Diagrama/Diagrama-Core-Digital-Banking-Microservice.png)
 
 
 #### Mensageria e Cache
