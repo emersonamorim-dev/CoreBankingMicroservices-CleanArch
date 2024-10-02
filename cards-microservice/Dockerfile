@@ -1,4 +1,3 @@
-# Usar uma imagem base do JDK 17 (ou 11, se necessário)
 FROM openjdk:17-jdk-slim
 
 # Definir o diretório de trabalho dentro do container
