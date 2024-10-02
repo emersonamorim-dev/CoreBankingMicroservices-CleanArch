@@ -91,7 +91,7 @@ RabbitMQ, Redis, e bancos de dados respectivos (PostgreSQL, MySQL, MongoDB)
 #### Passos de Instalação
 Clone o repositório do microserviço:
 ```
-git clone https://github.com/exemplo/core-digital-banking.git](https://github.com/emersonamorim-dev/CoreBankingMicroservices-CleanArch.git
+git clone https://github.com/emersonamorim-dev/CoreBankingMicroservices-CleanArch.git
 ```
 ```
 cd CoreBankingMicroservices-CleanArch
