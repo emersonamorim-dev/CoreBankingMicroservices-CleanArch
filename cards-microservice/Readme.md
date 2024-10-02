@@ -123,7 +123,7 @@ PostgreSQL:
 
 #### Diagrama da Aplicação
 
-![](https://raw.githubusercontent.com/emersonamorim-dev/Core-Digital-Banking-Microservice/main/Diagrama-Microserviço-Cartao-Kotlin.png)
+![](https://raw.githubusercontent.com/emersonamorim-dev/CoreBankingMicroservices-CleanArch/refs/heads/main/Diagrama/Diagrama-Microservico-Cartao-Kotlin.png)
 
 Banco de dados relacional utilizado para armazenar informações dos cartões e clientes. As interações com o banco de dados são feitas através dos repositórios definidos na camada de infraestrutura.
 RabbitMQ:
