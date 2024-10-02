@@ -9,7 +9,7 @@ Esse projeto é implementado com os princípios da Clean Architecture, onde cada
 Microservice de Cartões (Kotlin, PostgreSQL, RabbitMQ, Redis)
 O microserviço de cartões é responsável por toda a gestão de cartões de débito e crédito, incluindo emissão, cancelamento e verificação de dados.
 
-### Tecnologia:
+#### Tecnologia:
 Linguagem: Kotlin com Spring Boot
 Banco de Dados: PostgreSQL
 Mensageria: RabbitMQ para comunicação entre serviços
@@ -24,7 +24,7 @@ Autenticação: Implementação de autenticação e autorização com JWT.
 #### 2. Microservice de Pagamentos (Node.js, MySQL, RabbitMQ, Redis)
 O microserviço de pagamentos processa transações de pagamentos de forma segura e eficiente, garantindo a integridade e rapidez nas transações.
 
-### Tecnologia:
+#### Tecnologia:
 Linguagem: Node.js com Express.js
 Banco de Dados: MySQL
 Mensageria: RabbitMQ para comunicação assíncrona
