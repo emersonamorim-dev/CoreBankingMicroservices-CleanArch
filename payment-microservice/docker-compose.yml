@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  payment-microservice:
+    build: /home/seu-usuario/corebankingmicroservices-cleanarch/payment-microservice/
+    environment:
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672  
+    dns:
+      - 8.8.8.8   # DNS do Google
+    ports:
+      - "3000:3000"
+    networks:
+      - microservice-network
+    depends_on:
+      - mysql-db
+      - redis-cache
+      - rabbitmq
+
+  mysql-db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: paymentdb
+      MYSQL_ROOT_PASSWORD: sua-senha  
+      MYSQL_USER: root
+      MYSQL_PASSWORD: sua-senha
+    ports:
+      - "3307:3306"  # Certifique-se de que a porta não está em uso
+    volumes:
+      - ./databases/mysql/data:/var/lib/mysql
+    networks:
+      - microservice-network
+
+  redis-cache:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - microservice-network
+
+  rabbitmq:
+    image: rabbitmq:management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    networks:
+      - microservice-network
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus3
+    ports:
+      - "9094:9090"
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - microservice-network
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana3
+    ports:
+      - "3081:3000"
+    networks:
+      - microservice-network
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    container_name: zipkin3
+    ports:
+      - "9412:9411"
+    networks:
+      - microservice-network
+
+
+networks:
+  microservice-network:
+    driver: bridge
+

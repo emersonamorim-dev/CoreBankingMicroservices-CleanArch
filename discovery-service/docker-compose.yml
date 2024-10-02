@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: dynamodb-local
+    ports:
+      - "8001:8000"  # Porta exposta para conectar ao DynamoDB Local
+    networks:
+      - discovery-network
+    volumes:
+      - dynamodb_data:/home/dynamodblocal/data  # Persistência dos dados
+
+  discovery-service:
+    build: .
+    container_name: discovery-service
+    depends_on:
+      - dynamodb
+    environment:
+      DYNAMO_URL: http://dynamodb-local:8000  # URL do DynamoDB Local
+    ports:
+      - "8000:8000"
+    networks:
+      - discovery-network
+    command: npm start
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+
+networks:
+  discovery-network:
+    driver: bridge
+
+volumes:
+  dynamodb_data:

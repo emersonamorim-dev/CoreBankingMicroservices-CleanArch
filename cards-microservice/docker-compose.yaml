@@ -1,0 +1,111 @@
+version: '3.9'
+
+services:
+  cards-microservice:
+    build: /home/seu-usuario/corebankingmicroservices-cleanarch/cards-microservice/
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/cards_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=sua-senha
+      - SERVER_PORT=8081
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
+    dns:
+      - 8.8.8.8
+    ports:
+      - "8081:8081"
+    networks:
+      - microservice-network
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+      redis-cache:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    command: ["sh", "-c", "until nc -z rabbitmq 5672; do echo 'Waiting for RabbitMQ...'; sleep 5; done; java -jar /path/to/app.jar"]
+
+  postgres-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: cards_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sua-senha
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./databases/postgres/data:/var/lib/postgresql/data
+    networks:
+      - microservice-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  redis-cache:
+    image: redis:latest
+    ports:
+      - "6385:6379"
+    networks:
+      - microservice-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus2
+    ports:
+      - "9091:9090"
+    networks:
+      - microservice-network
+
+  node_exporter:
+    image: prom/node-exporter
+    ports:
+      - '9101:9100'
+    networks:
+      - microservice-network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - '3019:3000'
+    networks:
+      - microservice-network
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    ports:
+      - "9418:9411"
+    networks:
+      - microservice-network
+
+  rabbitmq:
+    image: rabbitmq:management
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_ERLANG_COOKIE: "supersecretcookie"
+    volumes:
+      - ./config/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+    ports:
+      - "5672:5672"   # Expondo a porta 5678, configurada via rabbitmq.conf
+      - "15672:15672"
+    networks:
+      - microservice-network
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  microservice-network:
+    driver: bridge
