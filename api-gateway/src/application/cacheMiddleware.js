@@ -1,6 +1,5 @@
 const { MongoClient } = require('mongodb');
 
-// Criação do cliente MongoDB e conexão com a base de dados
 const mongoUrl = 'mongodb://mongo-cache:27017';  // URL do MongoDB
 const client = new MongoClient(mongoUrl);
 let db;
