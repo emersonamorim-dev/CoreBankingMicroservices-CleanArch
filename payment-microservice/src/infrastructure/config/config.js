@@ -37,7 +37,6 @@ class RabbitMQConfig {
     }
   }
 
-  // Fecha a conexão com o RabbitMQ
   async close() {
     if (this.connection) {
       await this.channel.close();
