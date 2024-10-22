@@ -22,7 +22,6 @@ async function setCache(key, value) {
   );
 }
 
-// obter dados do cache MongoDB
 async function getCache(key) {
   await connectMongoDB();
   const cachedData = await db.collection('cache').findOne({ url: key });
