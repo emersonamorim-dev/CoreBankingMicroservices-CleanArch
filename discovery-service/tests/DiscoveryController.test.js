@@ -16,7 +16,7 @@ const mockResponse = () => {
 
 describe('DiscoveryController', () => {
   afterEach(() => {
-    jest.clearAllMocks(); // Limpa mocks após cada teste
+    jest.clearAllMocks(); 
   });
 
   describe('registerService', () => {
