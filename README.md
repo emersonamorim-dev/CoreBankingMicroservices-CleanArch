@@ -1,4 +1,4 @@
-### Core Digital Banking Microservices - C#, Kotlin e NodeJS 🚀 🔄 🌐 
+### Core Digital Banking Microservices - C#, Kotlin e NodeJS 🚀 🔄 🌐  
 
 O Core Digital Banking Microservice é uma solução robusta e resiliente para bancos digitais, baseada em uma Arquitetura de Microserviços Poliglota. Cada microserviço é responsável por uma função crítica do sistema bancário, utilizando diferentes tecnologias para atender às suas necessidades específicas, garantindo escalabilidade, flexibilidade e robustez.
 
